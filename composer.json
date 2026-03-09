@@ -1,0 +1,32 @@
+{
+    "name": "delickate/inventory-module",
+    "description": "Inventory Module for Laravel Applications",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Sani Hyne",
+            "email": "delickate@hotmail.com"
+        }
+    ],
+    "keywords": ["laravel", "module", "inventory"],
+    "require": {
+        "php": "^7.3|^8.0",
+        "illuminate/contracts": "^8.0|^9.0|^10.0|^11.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Delickate\\InventoryModule\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Delickate\\InventoryModule\\InventoryServiceProvider"
+            ]
+        }
+    },
+    
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
