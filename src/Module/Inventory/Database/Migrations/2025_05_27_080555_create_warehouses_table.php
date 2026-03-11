@@ -13,6 +13,7 @@ class CreateWarehousesTable extends Migration
      */
     public function up()
     {
+        if (!Schema::hasTable('warehouses')) {
         Schema::create('warehouses', function (Blueprint $table) {
             $table->engine = 'InnoDB';   
             $table->id();
@@ -24,6 +25,7 @@ class CreateWarehousesTable extends Migration
             $table->timestamp('created_at')->nullable();
             $table->timestamp('updated_at')->nullable();
         });
+        }
     }
 
     /**

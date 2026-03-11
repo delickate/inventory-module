@@ -13,6 +13,7 @@ class CreateSalesTable extends Migration
      */
     public function up()
     {
+        if (!Schema::hasTable('sales')) {
         Schema::create('sales', function (Blueprint $table) {
             $table->engine = 'InnoDB';   
             $table->integer('id', true);
@@ -27,6 +28,7 @@ class CreateSalesTable extends Migration
             $table->timestamp('updated_at')->useCurrentOnUpdate()->nullable()->useCurrent();
             $table->softDeletes();
         });
+        }
     }
 
     /**

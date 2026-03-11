@@ -13,6 +13,7 @@ class CreateCustomersTable extends Migration
      */
     public function up()
     {
+        if (!Schema::hasTable('customers')) {
         Schema::create('customers', function (Blueprint $table) {
             $table->engine = 'InnoDB';   
             $table->integer('id', true);
@@ -27,6 +28,7 @@ class CreateCustomersTable extends Migration
             $table->timestamp('updated_at')->useCurrentOnUpdate()->nullable()->useCurrent();
             $table->softDeletes();
         });
+        }
     }
 
     /**

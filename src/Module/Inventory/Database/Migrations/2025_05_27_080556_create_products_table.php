@@ -13,6 +13,7 @@ class CreateProductsTable extends Migration
      */
     public function up()
     {
+        if (!Schema::hasTable('products')) {
         Schema::create('products', function (Blueprint $table) {
             $table->engine = 'InnoDB';   
             $table->id();
@@ -41,6 +42,7 @@ class CreateProductsTable extends Migration
             $table->softDeletes(); 
             $table->timestamps();
         });
+        }
     }
 
     /**

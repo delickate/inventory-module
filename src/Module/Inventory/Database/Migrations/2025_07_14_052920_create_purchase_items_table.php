@@ -13,6 +13,7 @@ class CreatePurchaseItemsTable extends Migration
      */
     public function up()
     {
+        if (!Schema::hasTable('purchase_items')) {
         Schema::create('purchase_items', function (Blueprint $table) {
             $table->engine = 'InnoDB';   
             $table->bigIncrements('id');
@@ -32,6 +33,7 @@ class CreatePurchaseItemsTable extends Migration
             $table->boolean('is_active')->default(true);
             $table->unsignedBigInteger('deleted_by')->nullable(); //->index('purchase_entries_deleted_by_foreign');
         });
+        }
     }
 
     /**

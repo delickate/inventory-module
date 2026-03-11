@@ -13,6 +13,7 @@ class CreateInventoryTable extends Migration
      */
     public function up()
     {
+        if (!Schema::hasTable('inventory')) {
         Schema::create('inventory', function (Blueprint $table) {
             $table->engine = 'InnoDB';   
                 $table->id(); 
@@ -27,6 +28,7 @@ class CreateInventoryTable extends Migration
                 $table->timestamps();
 
             });
+        }
     }
 
     /**

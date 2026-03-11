@@ -13,6 +13,7 @@ class CreateSuppliersTable extends Migration
      */
     public function up()
     {
+        if (!Schema::hasTable('suppliers')) {
         Schema::create('suppliers', function (Blueprint $table) {
             $table->engine = 'InnoDB';   
             $table->id(); // Auto-incrementing primary key (equivalent to your id field)
@@ -29,6 +30,7 @@ class CreateSuppliersTable extends Migration
             $table->softDeletes(); // Creates deleted_at column for soft deletes
             $table->boolean('is_active')->default(true);
         });
+        }
     }
 
     /**

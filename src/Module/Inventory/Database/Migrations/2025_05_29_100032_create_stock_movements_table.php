@@ -13,6 +13,7 @@ class CreateStockMovementsTable extends Migration
      */
     public function up()
     {
+        if (!Schema::hasTable('stock_movements')) {
         Schema::create('stock_movements', function (Blueprint $table) {
             $table->engine = 'InnoDB';   
             $table->id(); 
@@ -32,6 +33,7 @@ class CreateStockMovementsTable extends Migration
             $table->timestamp('created_at')->nullable();
             $table->softDeletes(); 
         });
+        }
     }
 
     /**

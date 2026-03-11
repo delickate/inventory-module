@@ -13,6 +13,7 @@ class CreateSaleReturnItemsTable extends Migration
      */
     public function up()
     {
+        if (!Schema::hasTable('sale_return_items')) {
         Schema::create('sale_return_items', function (Blueprint $table) {
             $table->engine = 'InnoDB';   
             $table->integer('id', true);
@@ -27,6 +28,7 @@ class CreateSaleReturnItemsTable extends Migration
             $table->timestamp('updated_at')->useCurrentOnUpdate()->nullable()->useCurrent();
             $table->softDeletes();
         });
+        }
     }
 
     /**

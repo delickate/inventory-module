@@ -13,14 +13,17 @@ class CreateCategoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('categories', function (Blueprint $table) {
-            $table->engine = 'InnoDB';   
-            $table->id(); 
-            $table->string('name', 191)->nullable()->index();
-            $table->text('description')->nullable();
-            $table->softDeletes(); 
-            $table->timestamps();
-        });
+        if (!Schema::hasTable('categories')) 
+        {
+            Schema::create('categories', function (Blueprint $table) {
+                $table->engine = 'InnoDB';   
+                $table->id(); 
+                $table->string('name', 191)->nullable()->index();
+                $table->text('description')->nullable();
+                $table->softDeletes(); 
+                $table->timestamps();
+            });
+        }
     }
 
     /**

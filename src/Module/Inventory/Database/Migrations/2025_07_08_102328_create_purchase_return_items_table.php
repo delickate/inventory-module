@@ -13,6 +13,7 @@ class CreatePurchaseReturnItemsTable extends Migration
      */
     public function up()
     {
+        if (!Schema::hasTable('purchase_return_items')) {
         Schema::create('purchase_return_items', function (Blueprint $table) {
             $table->engine = 'InnoDB';   
             $table->integer('id', true);
@@ -27,6 +28,7 @@ class CreatePurchaseReturnItemsTable extends Migration
             $table->timestamp('updated_at')->nullable(); //->useCurrentOnUpdate()->nullable()->useCurrent();
             $table->softDeletes();
         });
+        }
     }
 
     /**

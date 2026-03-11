@@ -13,6 +13,7 @@ class CreatePurchaseTable extends Migration
      */
     public function up()
     {
+        if (!Schema::hasTable('purchases')) {
         Schema::create('purchases', function (Blueprint $table) 
         {
             $table->engine = 'InnoDB';   
@@ -34,6 +35,7 @@ class CreatePurchaseTable extends Migration
             $table->boolean('is_active')->default(true);
             $table->unsignedBigInteger('deleted_by')->nullable(); //->index('purchase_entries_deleted_by_foreign');
         });
+        }
     }
 
     /**

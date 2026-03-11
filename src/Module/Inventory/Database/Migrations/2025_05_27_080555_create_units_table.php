@@ -13,6 +13,7 @@ class CreateUnitsTable extends Migration
      */
     public function up()
     {
+        if (!Schema::hasTable('units')) {
         Schema::create('units', function (Blueprint $table) {
             $table->engine = 'InnoDB';   
             $table->id();
@@ -23,6 +24,7 @@ class CreateUnitsTable extends Migration
             $table->softDeletes(); 
             $table->timestamps();
         });
+        }
     }
 
     /**
