@@ -9,7 +9,7 @@ class InventoryServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->publishes([
-            __DIR__.'/Module/Inventory' => app_path('Modules/Inventory'),
+            __DIR__.'/Module/Inventory' => base_path('Modules/Inventory'),
         ], 'inventory-module');
 
         if ($this->app->runningInConsole()) {
